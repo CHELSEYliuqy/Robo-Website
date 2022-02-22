@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    <Br/>
+    <Br/>
+    <h1 align="center">Portfolio Optimizer Setup</h1>
+
+
+    <Br/>
+
+<!--    <u><h3>Setup</h3></u>-->
+    <form action="result" method="post">
+
+      {% csrf_token %}
+      <div>
+        <u><b>Please Specify The Parameters</b></u>
+      </div>
+      <div>
+        <label>Initial Investment</label>
+        <input type="number" name="cap">
+      </div>
+      <div>
+        <label>Risk Constraint</label>
+        <input type="number" step="any" name="sigma">
+      </div>
+      <div>
+        <label>Test Start</label>
+        <input type="date" name="test_start">
+      </div>
+      <div>
+        <label>Test End</label>
+        <input type="date" name="test_end">
+      </div>
+      <div>
+        <label for="rebf">Rebalance Freq</label>
+        <select name="rebf" id="rebf">
+          <option value="daily">daily</option>
+          <option value="weekly">weekly</option>
+          <option value="monthly">monthly</option>
+        </select>
+      </div>
+      <div>
+        <label for="Market">Market/Index</label>
+        <select name="Market" id="Market">
+          <option value="HS300">HS300</option>
+          <option value="CSI500">CSI500</option>
+          <option value="SSE50">SSE50</option>
+          <option value="SZ100">SZ100</option>
+          <option value="CYB50">CYB50</option>
+          <option value="HSI">HSI</option>
+          <option value="SP500">SP500</option>
+        </select>
+      </div>
+      <div>
+        <Br/>
+      </div>
+      <div>
+        <u><b>Please Select Portfolio Models</b></u>
+      </div>
+      <div>
+        <input type="checkbox" id="ew" name="ew" >
+        <label for="ew">Eqaully Weighted</label>
+      </div>
+      <div>
+        <input type="checkbox" id="factor" name="factor" >
+        <label for="factor">Factor</label>
+      </div>
+      <div>
+        <input type="checkbox" id="rp" name="rp" >
+        <label for="rp">Risk Parity</label>
+      </div>
+      <div>
+        <input type="checkbox" id="minv" name="minv" >
+        <label for="minv">Minimum Variance</label>
+      </div>
+      <div>
+        <input type="checkbox" id="maxser" name="maxser" >
+        <label for="maxser">MAXSER</label>
+      </div>
+      <div>
+        <input type="checkbox" id="maxser_h" name="maxser_h" >
+        <label for="maxser_h">MAXSER_H</label>
+      </div>
+      <div>
+        <input type="checkbox" id="maxser_slo" name="maxser_slo" >
+        <label for="maxser_slo">MAXSER_SLO</label>
+      </div>
+      <div>
+        <input type="checkbox" id="maxser_alo" name="maxser_alo" >
+        <label for="maxser_alo">MAXSER_ALO</label>
+      </div>
+      <div>
+        <input type="checkbox" id="maxser_h_slo" name="maxser_h_slo" >
+        <label for="maxser_h_slo">MAXSER_H_SLO</label>
+      </div>
+      <div>
+        <input type="checkbox" id="maxser_h_alo" name="maxser_h_alo" >
+        <label for="maxser_h_alo">MAXSER_H_ALO</label>
+      </div>
+      <Br/>
+      <div>
+        <input type="submit" id="bt" name="bt" value="BACKTEST">
+        <label for="bt"></label>
+        <input type="reset" id="rst" name="rst" value="RESET">
+        <label for="rst"></label>
+      </div>
+      <Br/>
+      <Br/>
+      <Br/>
+      <Br/>
+
+    </form>
+
+
+{% endblock %}
