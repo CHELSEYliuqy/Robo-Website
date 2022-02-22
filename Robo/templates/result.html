@@ -8,194 +8,197 @@
 
 {% block content %}
 
-    <Br/>
-    <Br/>
-    <h1 align="center">Optimizer Backtest Results</h1>
-    <Br/>
+    {{a}}
 
-    <!-- <div lass="table table-striped"> -->
-        <style>
-            .content-table{
-                border-collapse: collapse;
-                margin: 25px 0;
-                font-size: 0.9em;
-                min-width: 400px;
-            }
+<!--    <Br/>-->
+<!--    <Br/>-->
+<!--    <h1 align="center">Optimizer Backtest Results</h1>-->
+<!--    <Br/>-->
 
-            .content-table thead tr {
-                background-color: #009879;
-                color: #ffffff;
-                text-align: left;
-            }
-        </style>
+<!--    &lt;!&ndash; <div lass="table table-striped"> &ndash;&gt;-->
+<!--        <style>-->
+<!--            .content-table{-->
+<!--                border-collapse: collapse;-->
+<!--                margin: 25px 0;-->
+<!--                font-size: 0.9em;-->
+<!--                min-width: 400px;-->
+<!--            }-->
 
-        <table class="content-table">
-            {{stat | safe}}
-        </table>
-    <!-- </div>  -->
+<!--            .content-table thead tr {-->
+<!--                background-color: #009879;-->
+<!--                color: #ffffff;-->
+<!--                text-align: left;-->
+<!--            }-->
+<!--        </style>-->
 
-    <Br/>
-    <Br/>
-    <Br/>
-    <Br/>
-    <Br/>
-    <Br/>
-    <Br/>
+<!--        <table class="content-table">-->
+<!--            {{stat | safe}}-->
+<!--        </table>-->
+<!--    &lt;!&ndash; </div>  &ndash;&gt;-->
+
+<!--    <Br/>-->
+<!--    <Br/>-->
+<!--    <Br/>-->
+<!--    <Br/>-->
+<!--    <Br/>-->
+<!--    <Br/>-->
+<!--    <Br/>-->
 
 
-    <canvas id="port_value"  height="100"></canvas>
-    <script>
-        var ctxA = document.getElementById('port_value').getContext('2d');
-        var myChartA = new Chart(ctxA, {
-            type: 'line',
-            data: {
-                labels: {{rtn_dates | safe}},
-                datasets: [{% for key, value in rtn.items %}{
-                        label: '{{key | safe}}',
-                        data: {{value | safe}},
-                        borderWidth : 2,
-                        pointStyle: 'circle',
-                        radius: 0,
-                        fill: false, 
-                    },{% endfor %}] 
-            },
-            options: {
-                responsive: true,
-                layout: {
-                    padding: {
-                        left: 180,
-                        right: 180,
-                    }
-                },
-<!--                scales:{-->
-<!--                    yAxes: [{-->
-<!--                        type: 'logarithmic',-->
-<!--                        ticks:{-->
-<!--                            min:1,-->
-<!--                            max:5-->
-<!--                        }-->
-<!--                    }]-->
+
+<!--    <canvas id="port_value"  height="100"></canvas>-->
+<!--    <script>-->
+<!--        var ctxA = document.getElementById('port_value').getContext('2d');-->
+<!--        var myChartA = new Chart(ctxA, {-->
+<!--            type: 'line',-->
+<!--            data: {-->
+<!--                labels: {{rtn_dates | safe}},-->
+<!--                datasets: [{% for key, value in rtn.items %}{-->
+<!--                        label: '{{key | safe}}',-->
+<!--                        data: {{value | safe}},-->
+<!--                        borderWidth : 2,-->
+<!--                        pointStyle: 'circle',-->
+<!--                        radius: 0,-->
+<!--                        fill: false, -->
+<!--                    },{% endfor %}] -->
+<!--            },-->
+<!--            options: {-->
+<!--                responsive: true,-->
+<!--                layout: {-->
+<!--                    padding: {-->
+<!--                        left: 180,-->
+<!--                        right: 180,-->
+<!--                    }-->
+<!--                },-->
+<!--&lt;!&ndash;                scales:{&ndash;&gt;-->
+<!--&lt;!&ndash;                    yAxes: [{&ndash;&gt;-->
+<!--&lt;!&ndash;                        type: 'logarithmic',&ndash;&gt;-->
+<!--&lt;!&ndash;                        ticks:{&ndash;&gt;-->
+<!--&lt;!&ndash;                            min:1,&ndash;&gt;-->
+<!--&lt;!&ndash;                            max:5&ndash;&gt;-->
+<!--&lt;!&ndash;                        }&ndash;&gt;-->
+<!--&lt;!&ndash;                    }]&ndash;&gt;-->
+<!--&lt;!&ndash;                }&ndash;&gt;-->
+<!--            }-->
+<!--        });-->
+<!--    </script>-->
+
+
+<!--    <Br/>-->
+<!--    <Br/>-->
+
+
+<!--    <canvas id="port_dd"  height="70"></canvas>-->
+<!--    <script>-->
+<!--        var ctxB = document.getElementById('port_dd').getContext('2d');-->
+<!--        var myChartB = new Chart(ctxB, {-->
+<!--            type: 'line',-->
+<!--            data: {-->
+<!--                labels: {{dd_dates | safe}},-->
+<!--                datasets: [{% for key, value in dd.items %}{-->
+<!--                        label: '{{key | safe}}',-->
+<!--                        data: {{value | safe}},-->
+<!--                        borderWidth : 2,-->
+<!--                        pointStyle: 'circle',-->
+<!--                        radius: 0,-->
+<!--                        fill: false, -->
+<!--                    },{% endfor %}] -->
+<!--            },-->
+<!--            options: {-->
+<!--                responsive: true,-->
+<!--                layout: {-->
+<!--                    padding: {-->
+<!--                        left: 180,-->
+<!--                        right: 180,-->
+<!--                    }-->
+<!--                },-->
+<!--                legend: {-->
+<!--                    display: false-->
 <!--                }-->
-            }
-        });
-    </script>
+<!--            }-->
+<!--        });-->
+
+<!--    </script>-->
+
+<!--    <Br/>-->
+<!--    <Br/>-->
+<!--    <Br/>-->
+<!--    <Br/>-->
+<!--    <Br/>-->
+<!--    <Br/>-->
+<!--    <Br/>-->
 
 
-    <Br/>
-    <Br/>
+<!--    <canvas id="wts_summary"  height="80"></canvas>-->
+<!--    <script>-->
+<!--        var ctx = document.getElementById('wts_summary').getContext('2d');-->
+<!--        var myChart = new Chart(ctx, {-->
+<!--            type: 'line',-->
+<!--            data: {-->
+<!--                labels: {{smy_dates | safe}},-->
+<!--                datasets: [{% for key, value in smy.items %}{-->
+<!--                        label: '{{key | safe}}',-->
+<!--                        data: {{value | safe}},-->
+<!--                        borderWidth : 2,-->
+<!--                        pointStyle: 'circle',-->
+<!--                        radius: 5,-->
+<!--                        fill: false, -->
+<!--                    },{% endfor %}] -->
+<!--            },-->
+<!--            options: {-->
+<!--                responsive: true,-->
+<!--                layout: {-->
+<!--                    padding: {-->
+<!--                        left: 180,-->
+<!--                        right: 180,-->
+<!--                    }-->
+<!--                }-->
+<!--            }-->
+<!--        });-->
+<!--    </script>-->
+
+<!--    <Br/>-->
+<!--    <Br/>-->
+<!--    <Br/>-->
+<!--    <Br/>-->
+<!--    <Br/>-->
+<!--    <Br/>-->
+<!--    <Br/>-->
 
 
-    <canvas id="port_dd"  height="70"></canvas>
-    <script>
-        var ctxB = document.getElementById('port_dd').getContext('2d');
-        var myChartB = new Chart(ctxB, {
-            type: 'line',
-            data: {
-                labels: {{dd_dates | safe}},
-                datasets: [{% for key, value in dd.items %}{
-                        label: '{{key | safe}}',
-                        data: {{value | safe}},
-                        borderWidth : 2,
-                        pointStyle: 'circle',
-                        radius: 0,
-                        fill: false, 
-                    },{% endfor %}] 
-            },
-            options: {
-                responsive: true,
-                layout: {
-                    padding: {
-                        left: 180,
-                        right: 180,
-                    }
-                },
-                legend: {
-                    display: false
-                }
-            }
-        });
-
-    </script>
-
-    <Br/>
-    <Br/>
-    <Br/>
-    <Br/>
-    <Br/>
-    <Br/>
-    <Br/>
+<!--    <canvas id="latest_wts"  height="100"></canvas>-->
+<!--    <script>-->
+<!--        var ctx = document.getElementById('latest_wts').getContext('2d');-->
+<!--        var myChart = new Chart(ctx, {-->
+<!--            type: 'doughnut',-->
+<!--            data: {-->
+<!--                labels:  {{code | safe}},-->
+<!--                datasets: [{-->
+<!--                    label: '# of Votes',-->
+<!--                    data: {{wt | safe}},-->
+<!--                    borderWidth: 1-->
+<!--                }]-->
+<!--            },-->
+<!--            options: {-->
+<!--                responsive: true,-->
+<!--            }-->
+<!--        });-->
+<!--    </script>-->
 
 
-    <canvas id="wts_summary"  height="80"></canvas>
-    <script>
-        var ctx = document.getElementById('wts_summary').getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: {{smy_dates | safe}},
-                datasets: [{% for key, value in smy.items %}{
-                        label: '{{key | safe}}',
-                        data: {{value | safe}},
-                        borderWidth : 2,
-                        pointStyle: 'circle',
-                        radius: 5,
-                        fill: false, 
-                    },{% endfor %}] 
-            },
-            options: {
-                responsive: true,
-                layout: {
-                    padding: {
-                        left: 180,
-                        right: 180,
-                    }
-                }
-            }
-        });
-    </script>
-
-    <Br/>
-    <Br/>
-    <Br/>
-    <Br/>
-    <Br/>
-    <Br/>
-    <Br/>
-
-
-    <canvas id="latest_wts"  height="100"></canvas>
-    <script>
-        var ctx = document.getElementById('latest_wts').getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'doughnut',
-            data: {
-                labels:  {{code | safe}},
-                datasets: [{
-                    label: '# of Votes',
-                    data: {{wt | safe}},
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-            }
-        });
-    </script>
-
-
-    <Br/>
-    <Br/>
-    <Br/>
-    <Br/>
-    <Br/>
-    <Br/>
-    <Br/>
-    <Br/>
-    <Br/>
-    <Br/>
-    <Br/>
-    <Br/>
-    <Br/>
+<!--    <Br/>-->
+<!--    <Br/>-->
+<!--    <Br/>-->
+<!--    <Br/>-->
+<!--    <Br/>-->
+<!--    <Br/>-->
+<!--    <Br/>-->
+<!--    <Br/>-->
+<!--    <Br/>-->
+<!--    <Br/>-->
+<!--    <Br/>-->
+<!--    <Br/>-->
+<!--    <Br/>-->
 
 
 
