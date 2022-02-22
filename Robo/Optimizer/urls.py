@@ -7,5 +7,5 @@ urlpatterns = [
     path('setup', views.setup, name='setup'),
     path('about', views.about, name='about'),
     path('real_record', views.real_record, name='real_record'),
-    # path('result', views.result, name='result'),
+    path('result', views.result, name='result'),
 ]
