@@ -13,6 +13,8 @@
     <h1 align="center">Optimizer Backtest Results</h1>
     <Br/>
 
+
+
     <!-- <div lass="table table-striped"> -->
         <style>
             .content-table{
@@ -125,16 +127,27 @@
     <Br/>
     <Br/>
     <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
 
 
-    <canvas id="wts_summary"  height="80"></canvas>
+
+
+
+    {% if EW_flag == 1 %}
+    <canvas id="EW_wts_summary"  height="80"></canvas>
     <script>
-        var ctx = document.getElementById('wts_summary').getContext('2d');
+        var ctx = document.getElementById('EW_wts_summary').getContext('2d');
         var myChart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: {{smy_dates | safe}},
-                datasets: [{% for key, value in smy.items %}{
+                labels: {{EW_smy_dates | safe}},
+                datasets: [{% for key, value in EW_smy.items %}{
                         label: '{{key | safe}}',
                         data: {{value | safe}},
                         borderWidth : 2,
@@ -164,16 +177,97 @@
     <Br/>
 
 
-    <canvas id="latest_wts"  height="100"></canvas>
+    <canvas id="EW_latest_wts"  height="100"></canvas>
     <script>
-        var ctx = document.getElementById('latest_wts').getContext('2d');
+        var ctx = document.getElementById('EW_latest_wts').getContext('2d');
         var myChart = new Chart(ctx, {
             type: 'doughnut',
             data: {
-                labels:  {{code | safe}},
+                labels:  {{EW_code | safe}},
                 datasets: [{
                     label: '# of Votes',
-                    data: {{wt | safe}},
+                    data: {{EW_wts | safe}},
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+            }
+        });
+    </script>
+
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+
+    {% endif %}
+
+
+
+
+
+
+    {% if Factor_flag == 1 %}
+    <canvas id="Factor_wts_summary"  height="80"></canvas>
+    <script>
+        var ctx = document.getElementById('Factor_wts_summary').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: {{Factor_smy_dates | safe}},
+                datasets: [{% for key, value in Factor_smy.items %}{
+                        label: '{{key | safe}}',
+                        data: {{value | safe}},
+                        borderWidth : 2,
+                        pointStyle: 'circle',
+                        radius: 5,
+                        fill: false,
+                    },{% endfor %}]
+            },
+            options: {
+                responsive: true,
+                layout: {
+                    padding: {
+                        left: 180,
+                        right: 180,
+                    }
+                }
+            }
+        });
+    </script>
+
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+
+
+    <canvas id="Factor_latest_wts"  height="100"></canvas>
+    <script>
+        var ctx = document.getElementById('Factor_latest_wts').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels:  {{Factor_code | safe}},
+                datasets: [{
+                    label: '# of Votes',
+                    data: {{Factor_wts | safe}},
                     borderWidth: 1
                 }]
             },
@@ -197,7 +291,510 @@
     <Br/>
     <Br/>
     <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
 
+    {% endif %}
+
+
+
+
+
+
+
+
+    {% if MAXSER_flag == 1 %}
+    <canvas id="MAXSER_wts_summary"  height="80"></canvas>
+    <script>
+        var ctx = document.getElementById('MAXSER_wts_summary').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: {{MAXSER_smy_dates | safe}},
+                datasets: [{% for key, value in MAXSER_smy.items %}{
+                        label: '{{key | safe}}',
+                        data: {{value | safe}},
+                        borderWidth : 2,
+                        pointStyle: 'circle',
+                        radius: 5,
+                        fill: false,
+                    },{% endfor %}]
+            },
+            options: {
+                responsive: true,
+                layout: {
+                    padding: {
+                        left: 180,
+                        right: 180,
+                    }
+                }
+            }
+        });
+    </script>
+
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+
+
+    <canvas id="MAXSER_latest_wts"  height="100"></canvas>
+    <script>
+        var ctx = document.getElementById('MAXSER_latest_wts').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels:  {{MAXSER_code | safe}},
+                datasets: [{
+                    label: '# of Votes',
+                    data: {{MAXSER_wts | safe}},
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+            }
+        });
+    </script>
+
+
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+
+    {% endif %}
+
+
+
+
+
+
+
+
+    {% if MAXSER_H_flag == 1 %}
+    <canvas id="MAXSER_H_wts_summary"  height="80"></canvas>
+    <script>
+        var ctx = document.getElementById('MAXSER_H_wts_summary').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: {{MAXSER_H_smy_dates | safe}},
+                datasets: [{% for key, value in MAXSER_H_smy.items %}{
+                        label: '{{key | safe}}',
+                        data: {{value | safe}},
+                        borderWidth : 2,
+                        pointStyle: 'circle',
+                        radius: 5,
+                        fill: false,
+                    },{% endfor %}]
+            },
+            options: {
+                responsive: true,
+                layout: {
+                    padding: {
+                        left: 180,
+                        right: 180,
+                    }
+                }
+            }
+        });
+    </script>
+
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+
+
+    <canvas id="MAXSER_H_latest_wts"  height="100"></canvas>
+    <script>
+        var ctx = document.getElementById('MAXSER_H_latest_wts').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels:  {{MAXSER_H_code | safe}},
+                datasets: [{
+                    label: '# of Votes',
+                    data: {{MAXSER_H_wts | safe}},
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+            }
+        });
+    </script>
+
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+
+    {% endif %}
+
+
+
+
+
+
+
+
+
+    {% if MAXSER_Stock_Long_Only_flag == 1 %}
+    <canvas id="MAXSER_Stock_Long_Only_wts_summary"  height="80"></canvas>
+    <script>
+        var ctx = document.getElementById('MAXSER_Stock_Long_Only_wts_summary').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: {{MAXSER_Stock_Long_Only_smy_dates | safe}},
+                datasets: [{% for key, value in MAXSER_Stock_Long_Only_smy.items %}{
+                        label: '{{key | safe}}',
+                        data: {{value | safe}},
+                        borderWidth : 2,
+                        pointStyle: 'circle',
+                        radius: 5,
+                        fill: false,
+                    },{% endfor %}]
+            },
+            options: {
+                responsive: true,
+                layout: {
+                    padding: {
+                        left: 180,
+                        right: 180,
+                    }
+                }
+            }
+        });
+    </script>
+
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+
+
+    <canvas id="MAXSER_Stock_Long_Only_latest_wts"  height="100"></canvas>
+    <script>
+        var ctx = document.getElementById('MAXSER_Stock_Long_Only_latest_wts').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels:  {{MAXSER_Stock_Long_Only_code | safe}},
+                datasets: [{
+                    label: '# of Votes',
+                    data: {{MAXSER_Stock_Long_Only_wts | safe}},
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+            }
+        });
+    </script>
+
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+
+    {% endif %}
+
+
+
+
+
+
+
+
+   {% if MAXSER_ALL_Long_Only_flag == 1 %}
+    <canvas id="MAXSER_ALL_Long_Only_wts_summary"  height="80"></canvas>
+    <script>
+        var ctx = document.getElementById('MAXSER_ALL_Long_Only_wts_summary').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: {{MAXSER_ALL_Long_Only_smy_dates | safe}},
+                datasets: [{% for key, value in MAXSER_ALL_Long_Only_smy.items %}{
+                        label: '{{key | safe}}',
+                        data: {{value | safe}},
+                        borderWidth : 2,
+                        pointStyle: 'circle',
+                        radius: 5,
+                        fill: false,
+                    },{% endfor %}]
+            },
+            options: {
+                responsive: true,
+                layout: {
+                    padding: {
+                        left: 180,
+                        right: 180,
+                    }
+                }
+            }
+        });
+    </script>
+
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+
+
+    <canvas id="MAXSER_ALL_Long_Only_latest_wts"  height="100"></canvas>
+    <script>
+        var ctx = document.getElementById('MAXSER_ALL_Long_Only_latest_wts').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels:  {{MAXSER_ALL_Long_Only_code | safe}},
+                datasets: [{
+                    label: '# of Votes',
+                    data: {{MAXSER_ALL_Long_Only_wts | safe}},
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+            }
+        });
+    </script>
+
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+
+    {% endif %}
+
+
+
+
+
+
+
+   {% if MAXSER_H_Stock_Long_Only_flag == 1 %}
+    <canvas id="MAXSER_H_Stock_Long_Only_wts_summary"  height="80"></canvas>
+    <script>
+        var ctx = document.getElementById('MAXSER_H_Stock_Long_Only_wts_summary').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: {{MAXSER_H_Stock_Long_Only_smy_dates | safe}},
+                datasets: [{% for key, value in MAXSER_H_Stock_Long_Only_smy.items %}{
+                        label: '{{key | safe}}',
+                        data: {{value | safe}},
+                        borderWidth : 2,
+                        pointStyle: 'circle',
+                        radius: 5,
+                        fill: false,
+                    },{% endfor %}]
+            },
+            options: {
+                responsive: true,
+                layout: {
+                    padding: {
+                        left: 180,
+                        right: 180,
+                    }
+                }
+            }
+        });
+    </script>
+
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+
+
+    <canvas id="MAXSER_H_Stock_Long_Only_latest_wts"  height="100"></canvas>
+    <script>
+        var ctx = document.getElementById('MAXSER_H_Stock_Long_Only_latest_wts').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels:  {{MAXSER_H_Stock_Long_Only_code | safe}},
+                datasets: [{
+                    label: '# of Votes',
+                    data: {{MAXSER_H_Stock_Long_Only_wts | safe}},
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+            }
+        });
+    </script>
+
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+
+    {% endif %}
+
+
+
+
+
+
+   {% if MAXSER_H_ALL_Long_Only_flag == 1 %}
+
+    111
+    <canvas id="MAXSER_H_ALL_Long_Only_wts_summary"  height="80"></canvas>
+    <script>
+        var ctx = document.getElementById('MAXSER_H_ALL_Long_Only_wts_summary').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: {{MAXSER_H_ALL_Long_Only_smy_dates | safe}},
+                datasets: [{% for key, value in MAXSER_H_ALL_Long_Only_smy.items %}{
+                        label: '{{key | safe}}',
+                        data: {{value | safe}},
+                        borderWidth : 2,
+                        pointStyle: 'circle',
+                        radius: 5,
+                        fill: false,
+                    },{% endfor %}]
+            },
+            options: {
+                responsive: true,
+                layout: {
+                    padding: {
+                        left: 180,
+                        right: 180,
+                    }
+                }
+            }
+        });
+    </script>
+
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+
+
+    <canvas id="MAXSER_H_ALL_Long_Only_latest_wts"  height="100"></canvas>
+    <script>
+        var ctx = document.getElementById('MAXSER_H_ALL_Long_Only_latest_wts').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels:  {{MAXSER_H_ALL_Long_Only_code | safe}},
+                datasets: [{
+                    label: '# of Votes',
+                    data: {{MAXSER_H_ALL_Long_Only_wts | safe}},
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+            }
+        });
+    </script>
+
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+    <Br/>
+
+    {% endif %}
 
 
 
